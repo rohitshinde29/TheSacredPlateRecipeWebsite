@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2157336164.js" crossorigin="anonymous"></script>
+    <title>Recipes</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+        }
+        /* utilities */
+        
+        h1 {
+            margin: 0px;
+        }
+        
+        hr {
+            width: 900px;
+            margin-top: 50px;
+        }
+        
+        .btn_dark {
+            display: inline-block;
+            background-color: #212121;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            transition: all 0.4s;
+        }
+        
+        .btn_dark:hover {
+            background-color: white;
+            color: rgb(18, 67, 83);
+        }
+        
+        .margin_top {
+            margin-top: 25px;
+        }
+        
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            background-color: #212121;
+            overflow: auto;
+        }
+        
+        .navbar ul li {
+            display: inline-block;
+        }
+        
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: block;
+            padding: 25px 20px;
+            font-size: 13px;
+            letter-spacing: 5px;
+            transition-duration: 0.5s;
+        }
+        
+        .navbar ul li a:hover {
+            color: lightblue;
+        }
+        
+        .container {}
+        
+        .recipes {
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .container h1 {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            font-style: oblique;
+        }
+        /* contents */
+        
+        .card {
+            margin: 0px 5px 20px 25px;
+            width: 300px;
+            height: 290px;
+            padding: 0;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .card * {
+            transition: 0.3s ease all;
+        }
+        
+        .card img {
+            margin: 0;
+            width: 300px;
+            height: 224px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .card h3 {
+            margin: 0;
+            padding: 12px 12px 48px;
+            line-height: 32px;
+            font-weight: 500;
+            font-size: 20px;
+            text-transform: capitalize;
+        }
+        
+        .card .focus-content {
+            display: block;
+            padding: 8px 12px;
+        }
+        
+        .card p {
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .card:hover img,
+        .card:focus-within img {
+            margin-top: -80px;
+        }
+        
+        .card:hover h3,
+        .card:focus-within h3 {
+            padding: 8px 12px 0;
+        }
+        
+        .card:hover {
+            box-shadow: 0px 5px 10px 5px #888888;
+        }
+        footer{
+            background-color: black;
+            color: aliceblue;
+          width: 100%;
+          height: 80px;
+            bottom: 0;
+          margin: 0 auto;
+          text-align: center;
+        }
+        i{
+            color: aliceblue;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Lunch Recipes</h1>
+        <div class="recipes">
+            <div class="card">
+                <img src="images/indianfood/schezwanrice.jpg">
+                <h3>schezwan rice</h3>
+                <div class="focus-content">
+                    <p>Agar Dil Mein Prem Hai-ji, Toh Butter Mein Dooba Pav-Bhaji !.<br/> <a href="#">Link to source</a>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/indianfood/masalabhindi.jpg">
+                <h3>Masala bhindi</h3>
+                <div class="focus-content">
+                    <p>Agar Dil Mein Prem Hai-ji, Toh Butter Mein Dooba Pav-Bhaji !.<br/> <a href="#">Link to source</a>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/indianfood/tomatorice.jpg">
+                <h3>tomato rice</h3>
+                <div class="focus-content">
+                    <p>Agar Dil Mein Prem Hai-ji, Toh Butter Mein Dooba Pav-Bhaji !.<br/> <a href="#">Link to source</a>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/indianfood/masalabhaat.jpg">
+                <h3>daal khichdi</h3>
+                <div class="focus-content">
+                    <p>Agar Dil Mein Prem Hai-ji, Toh Butter Mein Dooba Pav-Bhaji !.<br/> <a href="#">Link to source</a>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/indianfood/aloovadi.jpg">
+                <h3>Aloo Vadi</h3>
+                <div class="focus-content">
+                    <p>Agar Dil Mein Prem Hai-ji, Toh Butter Mein Dooba Pav-Bhaji !.<br/> <a href="#">Link to source</a>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/indianfood/tambdarassa.jpg">
+                <h3>tambda pandhara rassa</h3>
+                <div class="focus-content">
+                    <p>Agar Dil Mein Prem Hai-ji, Toh Butter Mein Dooba Pav-Bhaji !.<br/> <a href="#">Link to source</a>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/indianfood/tawachicken.jpg">
+                <h3>tawa chicken</h3>
+                <div class="focus-content">
+                    <p>Agar Dil Mein Prem Hai-ji, Toh Butter Mein Dooba Pav-Bhaji !.<br/> <a href="#">Link to source</a>
+                    </p>
+                </div>
+                <div class="card">
+                    <img src="images/indianfood/pavbhaji.jpg">
+                    <h3>pav bhaji</h3>
+                    <div class="focus-content">
+                        <p>Agar Dil Mein Prem Hai-ji, Toh Butter Mein Dooba Pav-Bhaji !.<br/> <a href="#">Link to source</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/indianfood/pavbhaji.jpg">
+                    <h3>pav bhaji</h3>
+                    <div class="focus-content">
+                        <p>Agar Dil Mein Prem Hai-ji, Toh Butter Mein Dooba Pav-Bhaji !.<br/> <a href="#">Link to source</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        </div>
+        <footer>
+            The Sacred Plate  |  Follow us at:
+                <a href="https://www.facebook.com/"><i class="fab fa-2x fa-facebook-square"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-2x fa-instagram"></i></a>
+                <a href="https://twitter.com/"><i class="fab fa-2x fa-twitter"></i></a>
+                <br><br>
+        
+                <a href="#">Privacy Policy</a> &ensp;&ensp;&ensp;
+                <a href="#">Terms</a>
+        </footer>
+        </body>
+        </html>

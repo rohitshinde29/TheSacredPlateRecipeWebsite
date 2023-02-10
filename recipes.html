@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-grid.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2157336164.js" crossorigin="anonymous"></script>
+    <title>Recipes</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+        }
+        /* utilities */
+        
+        h1 {
+            margin: 0px;
+        }
+        
+        hr {
+            width: 900px;
+            margin-top: 50px;
+        }
+        
+        .btn_dark {
+            display: inline-block;
+            background-color: #212121;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            transition: all 0.4s;
+        }
+        
+        .btn_dark:hover {
+            background-color: white;
+            color: rgb(18, 67, 83);
+        }
+        
+        .margin_top {
+            margin-top: 25px;
+        }
+        
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+            background-color: #212121;
+            overflow: auto;
+        }
+        
+        .navbar ul li {
+            display: inline-block;
+        }
+        
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: block;
+            padding: 25px 20px;
+            font-size: 13px;
+            letter-spacing: 5px;
+            transition-duration: 0.5s;
+        }
+        
+        .navbar ul li a:hover {
+            color: lightblue;
+        }
+        
+        .bg_gray {
+            background-color: rgba(115, 64, 96);
+            color: white;
+            padding-bottom: 30px;
+        }
+        
+        .bg_gray h1 {
+            text-align: center;
+            padding-top: 20px;
+            letter-spacing: 4px;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 2px 2px 10px black;
+            text-transform: uppercase;
+        }
+        
+        .bg_gray a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .bg_gray p {
+            display: block;
+            padding-top: 20px;
+            margin: 0px;
+            font-family: 'Cursive', cursive;
+            text-align: center;
+            letter-spacing: 2px;
+            font-weight: 400;
+            text-shadow: 2px 2px 10px black;
+            font-size: 18px;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+        }
+        /*popular_categories*/
+        
+        .popular_categories {
+            margin: 0;
+        }
+        
+        .popular_categories h2 {
+            text-align: center;
+        }
+        
+        .list {
+            background-color: red;
+            height: 100px;
+        }
+        
+        .list ul {
+            display: inline-block;
+        }
+        
+        .popular_categories table {
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+        }
+        
+        .popular_categories li a {
+            text-decoration: none;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            letter-spacing: 2px;
+            display: inline-block;
+        }
+        
+        td {
+            text-align: center;
+            display: inline-block;
+            margin: 10px;
+            font-size: 20px;
+        }
+        
+        td a:hover {
+            text-decoration: underline;
+            color: rgb(95, 57, 45);
+        }
+        /* //recipe section */
+        
+        .dinnerrecipe_section {
+            padding: 20px 0;
+        }
+        
+        .dinnerrecipe_section h1 {
+            font-family: 'Times New Roman', Times, serifs;
+            text-align: center;
+            padding: 10px;
+            font-style: italic;
+        }
+        
+        .dinnerrecipe_section h1 a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .image_wrapper img {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            transition: all 0.4s;
+        }
+        
+        .image_wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+        
+        .image_wrapper_text {
+            padding: 30px 15px;
+            max-height: 150px;
+            overflow: hidden;
+            position: absolute;
+            bottom: 0px;
+            text-align: center;
+            text-transform: capitalize;
+            background-color: rgb(0, 0, 0, 0.7);
+            width: 100%;
+            color: white;
+        }
+        
+        .image_wrapper_text h5 {
+            color: white;
+            font-size: 28px;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .image_wrapper:hover img {
+            transform: scale3d(1.2, 1.2, 1.2);
+            cursor: pointer;
+        }
+        
+        .image_responsive {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        i {
+            margin: 5px;
+            color: orchid;
+        }
+        
+        h1 a:hover {
+            text-decoration: underline;
+        }
+        
+        i:hover {
+            color: yellowgreen;
+        }
+        
+        .card {
+            width: 300px;
+            height: 280px;
+            padding: 0;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        
+        .card * {
+            transition: 0.3s ease all;
+        }
+        
+        .card img {
+            margin: 0;
+            width: 300px;
+            height: 224px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .card h3 {
+            margin: 0;
+            padding: 12px 12px 48px;
+            line-height: 32px;
+            font-weight: 500;
+            font-size: 20px;
+            text-transform: capitalize;
+        }
+        
+        .card .focus-content {
+            display: block;
+            padding: 8px 12px;
+        }
+        
+        .card p {
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .card:hover img,
+        .card:focus-within img {
+            margin-top: -80px;
+        }
+        
+        .card:hover h3,
+        .card:focus-within h3 {
+            padding: 8px 12px 0;
+        }
+        
+        .card:hover {
+            box-shadow: 0px 5px 10px 5px #888888;
+        }
+        
+        footer {
+            background-color: black;
+            color: aliceblue;
+            width: 100%;
+            height: 80px;
+            bottom: 0;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        footer i {
+            color: aliceblue;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recipes.html">Recipe</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </div>
+    <div class="bg_gray">
+        <p><span><a href="index.html">The Sacred Plate</a>>Recipes</span></p>
+        <h1>Recipes</h1>
+        <p> We’ve organized these recipes every way we could think of so you don't have to! Dietary restrictions, weeknight dinners, meal prep recipes, some of our most tried-and-true… no matter how you browse, we’re sure you’ll find just what you were looking
+            for.&ensp;&ensp;
+        </p>
+    </div>
+    <div class="popular_categories">
+        <h2>Popular Categories</h2>
+        <hr>
+        <table>
+            <tr>
+                <ul>
+                    <td>
+                        <li><a href="dinnerrecipes.html">Dinners</a></li>
+                    </td>
+                    <td>
+                        <li><a href="lunchrecipe.html">Lunches</a></li>
+                    </td>
+                    <td>
+                        <li><a href="breakfast.html">Breakfast</a></li>
+                    </td>
+                    <td>
+                        <li><a href="dessert.html">Desserts</a></li>
+                    </td>
+            </tr>
+            <tr>
+                <td>
+                    <li><a href="#">Snacks And Appetizers</a></li>
+                </td>
+                <td>
+                    <li><a href="#">Drinks</a></li>
+                </td>
+                <td>
+                    <li><a href="#">Holidays And Seasons</a></li>
+                </td>
+                <td>
+                    <li><a href="#">Recipes By Ingredients</a></li>
+                </td>
+                <td>
+                    <li><a href="#">Recipes By Method</a></li>
+                </td>
+                <td>
+                    <li><a href="#">Recipes By Diet</a></li>
+                </td>
+                <td>
+                    <li><a href="#">Recipes By Time And Ease</a></li>
+                </td>
+                <td>
+                    <li><a href="#">Recipes By World Cuisine</a></li>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br><br><br>
+    <hr>
+    <!-- Dinner Recipe Section -->
+    <div class="dinnerrecipe_section">
+        <div class="container">
+            <h1><a href="dinnerrecipes.html">Dinner Recipes<i class="fa fa-arrow-right" aria-hidden="true"></i></a></h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/indianfood/pavbhaji.jpg">
+                        <h3>pav bhaji</h3>
+                        <div class="focus-content">
+                            <p><br/> <a href="Pavbhaji.html">Link to source</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/indianfood/chickenbiryani1.jpg">
+                        <h3>chicken biryani</h3>
+                        <div class="focus-content">
+                            <p> <a href="ChickenBiryani.html">Link to source</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/indianfood/matarpaneer.jpg">
+                        <h3>Matar Paneer</h3>
+                        <div class="focus-content">
+                            <p><a href="MatarPaneer.html">Link to source</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- Lunch Recipe section -->
+        <div class="recipe_section">
+            <div class="container">
+                <h1><a href="lunchrecipe.html">Lunch Recipes<i class="fa fa-arrow-right" aria-hidden="true"></i></a></h1>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/indianfood/schezwanrice.jpg">
+                            <h3>schezwan rice</h3>
+                            <div class="focus-content">
+                                <p> <a href="SchezwanRice.html">Link to source</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/indianfood/masalabhindi.jpg">
+                            <h3>masala bhindi</h3>
+                            <div class="focus-content">
+                                <p> <a href="BhindiMasala.html">Link to source</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="images/indianfood/tomatorice.jpg">
+                            <h3>tomato rice</h3>
+                            <div class="focus-content">
+                                <p> <a href="TomatoRice.html">Link to source</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <!-- Breakfast Section -->
+                <div class="recipe_section">
+                    <div class="container">
+                        <h1><a href="breakfast.html">Breakfast Recipe<i class="fa fa-arrow-right" aria-hidden="true"></i></a></h1>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="images/indianfood/dosa.jpg">
+                                    <h3>Masala Dosa</h3>
+                                    <div class="focus-content">
+                                        <p> <a href="MasalaDosa.html">Link to source</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="images/indianfood/dhokla.jpg">
+                                    <h3>Dhokla</h3>
+                                    <div class="focus-content">
+                                        <p> <a href="Dhokla.html">Link to source</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="images/indianfood/idli.jpg">
+                                    <h3>Idli Sambhar-Chutney</h3>
+                                    <div class="focus-content">
+                                        <p> <a href="IdliSambar.html">Link to source</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="recipe_section">
+                            <div class="container">
+                                <h1><a href="dessert.html">Dessert Recipes<i class="fa fa-arrow-right" aria-hidden="true"></i></a></h1>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <img src="images/indianfood/gulabjamundesert.jpg">
+                                            <h3>Gulab Jamun</h3>
+                                            <div class="focus-content">
+                                                <p> <a href="#">Link to source</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <img src="images/indianfood/rasgulla.jpg">
+                                            <h3>rasgulla</h3>
+                                            <div class="focus-content">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/> <a href="#">Link to source</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <img src="images/indianfood/amrakhand.jpg">
+                                            <h3>Aamrakhand</h3>
+                                            <div class="focus-content">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br/> <a href="#">Link to source</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        The Sacred Plate | Follow us at:
+        <a href="https://www.facebook.com/"><i class="fab fa-2x fa-facebook-square"></i></a>
+        <a href="https://www.instagram.com/"><i class="fab fa-2x fa-instagram"></i></a>
+        <a href="https://twitter.com/"><i class="fab fa-2x fa-twitter"></i></a>
+        <br><br>
+
+        <a href="#">Privacy Policy</a> &ensp;&ensp;&ensp;
+        <a href="#">Terms</a>
+    </footer>
+</body>
+
+</html>

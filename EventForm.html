@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Event Register</title>
+  <script type="text/javascript">
+    function validate()
+    {
+      if (document.form.name.value=="") 
+      {
+        alert("Please provide your Name!");
+        document.form.name.focus();
+        return false;
+      }
+      if (document.form.email.value=="")
+      {
+        alert("Please provide your Email!");
+        document.form.email.focus();
+        return false;
+      }
+      if(document.form.mob.value=="" || document.form.mob.value.length!=10)
+      {
+        alert("Please provide your Mobile No.!");
+        document.form.mob.focus();
+        return false;
+      }
+      if(document.form.dob.value=="")
+      {
+        alert("Choose the date!");
+        document.form.dob.focus();
+        return false;
+      }
+       if(document.form.city.selectedIndex=="")
+            {
+                alert("Please Select your city!");
+                return false;
+            }
+            var sel=document.getElementById("city");
+            var selectedText=sel.options[sel.selectedIndex].text;
+            alert("The selected city is : "+selectedText);
+      if(document.form.event.selectedIndex=="")
+            {
+                alert("Please select the event!");
+                return false;
+            }
+            var sel=document.getElementById("event");
+            var selectedText=sel.options[sel.selectedIndex].text;
+            alert("The selected event is : "+selectedText);
+            }
+  </script>
+</head>
+<body>
+  <center>
+  <h1>Event Registration Form</h1>
+    <form name="form" onsubmit="return validate();">
+        
+        <label>Name</label><br>
+        <input type="text" name="name" placeholder="Enter your Name here"><br><br>
+
+        <label>E-mail</label><br>
+        <input type="email" name="email" id="email" placeholder="Enter your Email-id here"><br><br>
+        
+
+        <label>Mobile No.</label><br>
+        <input type="number" name="mob" id="mob" placeholder="Enter your Mobile number here"><br><br>
+       
+
+        <label>Pick a date for event</label><br>
+        <input type="date" name="dob" id="dob" placeholder="Date for event"><br><br>
+
+         Select Your city<br><select name="city" id="city">
+            <option value="">Choose Your City</option>
+            <option value="Pune">PUNE</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Kolkata">Kolkata</option>
+        </select>
+
+            <p>Which event are you interested in?</p>
+            <select name="event" id="event">
+                <option value="">[Select]</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Engagement">Engagement</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Freshers">Freshers</option>
+                <option value="Office Party">Office Party</option>
+                <option value="Baby Shower">Baby Shower</option>
+            </select>
+        <br><br>
+        <button type="submit" value="submit" onclick="validate()">Submit</button>
+    </center>
+  </form>
+</body>
+</html>
